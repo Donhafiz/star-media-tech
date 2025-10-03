@@ -1,0 +1,82 @@
+<%- include('partials/header', { title: 'Home' }) %>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to <span>STAR MEDIA TECH</span></h1>
+            <p>Your premier destination for cutting-edge media solutions and technology services</p>
+            <div class="hero-buttons">
+                <a href="/services" class="btn btn-primary">Our Services</a>
+                <a href="/shop" class="btn btn-secondary">Shop Now</a>
+            </div>
+        </div>
+        <div class="hero-background">
+            <div class="gradient-overlay"></div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3 data-count="100">0</h3>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="stat-card">
+                    <h3 data-count="500">0</h3>
+                    <p>Happy Clients</p>
+                </div>
+                <div class="stat-card">
+                    <h3 data-count="5">0</h3>
+                    <p>Branches</p>
+                </div>
+                <div class="stat-card">
+                    <h3 data-count="1000">0</h3>
+                    <p>Products Sold</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Services -->
+    <section class="featured-services">
+        <div class="container">
+            <h2>Our Featured Services</h2>
+            <div class="services-grid">
+                <% services.forEach(service => { %>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3><%= service.name %></h3>
+                    <p><%= service.description %></p>
+                    <div class="service-price">From GH¢<%= service.price %></div>
+                </div>
+                <% }); %>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <h2>Featured Products</h2>
+            <div class="products-grid">
+                <% products.forEach(product => { %>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="<%= product.imageUrl %>" alt="<%= product.name %>">
+                    </div>
+                    <div class="product-info">
+                        <h3><%= product.name %></h3>
+                        <p class="product-price">GH¢<%= product.price %></p>
+                        <button class="btn btn-primary add-to-cart" data-product="<%= product._id %>">Add to Cart</button>
+                    </div>
+                </div>
+                <% }); %>
+            </div>
+        </div>
+    </section>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STAR MEDIA TECH - <%= title %></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Pre-loader -->
+    <div id="preloader">
+        <div class="loader">
+            <div class="logo">
+                <h1>STAR MEDIA TECH</h1>
+            </div>
+            <div class="progress">
+                <div class="progress-bar"></div>
+            </div>
+            <p>Amaraaba!</p>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h2>STAR MEDIA TECH</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="/" class="nav-link">Home</a></li>
+                    <li><a href="/about" class="nav-link">About</a></li>
+                    <li><a href="/branches" class="nav-link">Branches</a></li>
+                    <li><a href="/services" class="nav-link">Services</a></li>
+                    <li><a href="/shop" class="nav-link">Shopping</a></li>
+                    <% if (user) { %>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle">
+                                <i class="fas fa-user"></i> <%= user.username %>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/auth/logout">Logout</a></li>
+                                <% if (user.role === 'admin') { %>
+                                    <li><a href="/admin">Admin Panel</a></li>
+                                <% } %>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/shop/cart" class="nav-link cart-icon">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span class="cart-count">0</span>
+                            </a>
+                        </li>
+                    <% } else { %>
+                        <li><a href="/auth/login" class="nav-link login-btn">Login</a></li>
+                    <% } %>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
